@@ -1,4 +1,4 @@
-// HCM_KS24B_TranHoangDuy_N24DTCN021
+// HCM_KS24B_TranHoangDuy_N24DTCN021_01
 
 #include <stdio.h>
 
@@ -206,7 +206,7 @@ int main ()
                         array[i] = array[i-1];
                     }
                 
-                array[addIndex] = newValue ;
+                array[addIndex] = newValue;
                 
                 SIZE++;
                 
