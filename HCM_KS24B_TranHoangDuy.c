@@ -1,4 +1,7 @@
+// HCM_KS24B_TranHoangDuy_N24DTCN021
+
 #include <stdio.h>
+
 #include <math.h>
 
 const int MAX_SIZE = 100;
@@ -39,7 +42,7 @@ int main ()
         
         printf("\n+++++++++++++++++++++++++++\n");
 
-        printf("\nMoi ban nhap chuc nang: ");
+        printf("\nMoi ban chon chuc nang: ");
         
         scanf("%d", &choices);
 
@@ -102,7 +105,9 @@ int main ()
                 check = 1;
                 
                 break;
+            
             case 3:
+                
                 int countIsPrime = 0;
 
                 int flag = 1;
@@ -139,11 +144,79 @@ int main ()
                 check = 1;
 
                 break;
+            
             case 4:
-                break;  
-            case 5:                
+
+            int largest_possible = 100;
+            
+            int smallest = largest_possible;
+            
+            int second_smallest = largest_possible;
+    
+            for (int i = 0; i < SIZE; i++) 
+                {
+                    if (array[i] < smallest) 
+                        {
+                            second_smallest = smallest;
+                            
+                            smallest = array[i];
+                        } 
+                            else if (array[i] > smallest && array[i] < second_smallest) 
+                                {
+                                    second_smallest = array[i];
+                                }
+                }
+
+                    if (second_smallest == largest_possible) 
+                        {
+                            printf("\nTrong mang khong co phan tu nho thu hai ( hai phan tu nho nhat bang nhau )\n");
+                        } 
+                            else 
+                                {
+                                    printf("\nSo nho thu hai la: %d\n", second_smallest);
+                                }
+                
+                check = 1;
+                
+                break;
+
+            case 5:
+                
+                int addIndex, newValue;
+                
+                printf("\nNhap gia tri can them vao mang: ");
+                
+                scanf("%d",&newValue);
+                
+                printf("\nNhap vi tri can them vao mang: ");
+                
+                scanf("%d",&addIndex);
+                
+                if(addIndex < 0)
+                {
+                    addIndex = 0;
+                }
+                    else if(addIndex > SIZE)
+                        {
+                            addIndex = SIZE;
+                        }
+                
+                for(int i = SIZE; i > addIndex; i--)
+                    {
+                        array[i] = array[i-1];
+                    }
+                
+                array[addIndex] = newValue ;
+                
+                SIZE++;
+                
+                printf("\nDa them phan tu thanh cong!\n");
+
+                check = 1;
+                
                 break;
             case 6:
+                
                 int deleteIndex;
 
                 printf("\nMoi ban nhap vi tri phan tu can xoa: ");
@@ -171,6 +244,7 @@ int main ()
                 break;
                 
             case 7:
+                
                 for(int i = 1; i < SIZE; i++)
                     {
                         int key = array[i];
@@ -243,8 +317,9 @@ int main ()
 
                 break;
 
-            case 9:
+            case 9:                                       
                 break;
+            
             case 10:
                 
                 printf("\nPhan tu trong mang sap xep theo thu tu nguoc lai: ");
@@ -257,11 +332,11 @@ int main ()
                 printf("\n\n");
 
                 check = 1;
-                
-                
+                                
                 break;
             
             default:
+                
                 printf("\nLua chon ko hop le, vui long nhap lai!");
                 
                 break;
